@@ -28,15 +28,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private final String TAG="MainActivity";
-    private ArrayList<ContinentsModel>modelArrayList;
-    private ApiEndpoint apiEndpoint;
-    private ListView lv;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private ActionBarDrawerToggle drawerToggle;
-    private String BaseURL="https://disease.sh/v3/covid-19";
 
 
     @Override
@@ -57,11 +52,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.bringToFront();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.menu_menu);
         }
-////        METHOD GET DATA
-//        getDataFromApi();
     }
 
     //    SELECT ITEM ON NAV DRAWER
@@ -87,22 +80,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
-//    private void getDataFromApi(){
-//        ApiService.endpoint().getDataContinents()
-//                .enqueue(new Callback<ContinentsModel>() {
-//                    @Override
-//                    public void onResponse(Call<ContinentsModel> call, Response<ContinentsModel> response) {
-//                        if(response.isSuccessful()){
-//                            List<ContinentsModel.covidContinent> results=response.body().getCovidcontinent();
-//                            Log.d(TAG,results.toString());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<ContinentsModel> call, Throwable t) {
-//                        Log.d(TAG,t.toString());
-//                    }
-//                });
-//    }
 }
