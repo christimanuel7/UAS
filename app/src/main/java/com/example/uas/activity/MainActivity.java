@@ -62,9 +62,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_menu:
+                navigationView.setCheckedItem(R.id.menu_menu);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
                 break;
             case R.id.menu_global:
+                navigationView.setCheckedItem(R.id.menu_global);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new GlobalFragment()).commit();
                 break;
         }
