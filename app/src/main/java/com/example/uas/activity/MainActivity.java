@@ -1,15 +1,24 @@
 package com.example.uas.activity;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.uas.ContinentsModel;
 import com.example.uas.R;
+import com.example.uas.fragment.GlobalFragment;
+import com.example.uas.fragment.HomeFragment;
 import com.example.uas.retrofitAPI.ApiEndpoint;
 import com.example.uas.retrofitAPI.ApiService;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +27,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private final String TAG="MainActivity";
     private ArrayList<ContinentsModel>modelArrayList;
     private ApiEndpoint apiEndpoint;
     private ListView lv;
+    private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private ActionBarDrawerToggle drawerToggle;
     private String BaseURL="https://disease.sh/v3/covid-19";
 
 
@@ -30,26 +43,66 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lv=findViewById(R.id.lv);
-//        METHOD GET DATA
-        getDataFromApi();
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView = findViewById(R.id.navView);
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.bringToFront();
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.menu_menu);
+        }
+////        METHOD GET DATA
+//        getDataFromApi();
     }
 
-    private void getDataFromApi(){
-        ApiService.endpoint().getDataContinents()
-                .enqueue(new Callback<ContinentsModel>() {
-                    @Override
-                    public void onResponse(Call<ContinentsModel> call, Response<ContinentsModel> response) {
-                        if(response.isSuccessful()){
-                            List<ContinentsModel.covidContinent> results=response.body().getCovidcontinent();
-                            Log.d(TAG,results.toString());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ContinentsModel> call, Throwable t) {
-                        Log.d(TAG,t.toString());
-                    }
-                });
+    //    SELECT ITEM ON NAV DRAWER
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menu_menu:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+                break;
+            case R.id.menu_global:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new GlobalFragment()).commit();
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+//    private void getDataFromApi(){
+//        ApiService.endpoint().getDataContinents()
+//                .enqueue(new Callback<ContinentsModel>() {
+//                    @Override
+//                    public void onResponse(Call<ContinentsModel> call, Response<ContinentsModel> response) {
+//                        if(response.isSuccessful()){
+//                            List<ContinentsModel.covidContinent> results=response.body().getCovidcontinent();
+//                            Log.d(TAG,results.toString());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<ContinentsModel> call, Throwable t) {
+//                        Log.d(TAG,t.toString());
+//                    }
+//                });
+//    }
 }
