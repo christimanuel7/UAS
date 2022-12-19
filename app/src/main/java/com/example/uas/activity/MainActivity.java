@@ -8,24 +8,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ListView;
 
-import com.example.uas.ContinentsModel;
 import com.example.uas.R;
 import com.example.uas.fragment.GlobalFragment;
 import com.example.uas.fragment.HomeFragment;
-import com.example.uas.retrofitAPI.ApiEndpoint;
-import com.example.uas.retrofitAPI.ApiService;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;

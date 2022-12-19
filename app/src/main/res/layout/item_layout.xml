@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/datContinent"
+                android:text="datContinent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/datCases"
+                android:text="datCase"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/datDeath"
+                android:text="datDeath"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/datRecovered"
+                android:text="datRecovered"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#000" />
+        </TableRow>
+
+</TableLayout>
+

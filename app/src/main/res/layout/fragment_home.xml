@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.HomeFragment">
+    tools:context=".fragment.HomeFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        <TextView
+            android:id="@+id/txtContinents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONTINENTS" />
 
-</FrameLayout>
+       <TableLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_below="@id/txtContinents">
+
+           <TableRow>
+                   <TextView
+                       android:id="@+id/txtContinent"
+                       android:layout_weight="2"
+                       android:gravity="center"
+                       android:padding="5dp"
+                       android:text="Continent"
+                       android:textColor="#000" />
+
+                   <TextView
+                       android:id="@+id/txtCases"
+                       android:layout_weight="2"
+                       android:gravity="center"
+                       android:padding="5dp"
+                       android:text="Cases"
+                       android:textColor="#000" />
+
+                   <TextView
+                       android:id="@+id/txtDeath"
+                       android:layout_weight="2"
+                       android:gravity="center"
+                       android:padding="5dp"
+                       android:text="Death"
+                       android:textColor="#000" />
+
+                   <TextView
+                       android:id="@+id/txtRecovered"
+                       android:layout_weight="2"
+                       android:gravity="center"
+                       android:padding="5dp"
+                       android:text="Recovered"
+                       android:textColor="#000" />
+           </TableRow>
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/recyclerView"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               tools:listitem="@layout/item_layout"/>
+
+       </TableLayout>
+
+</RelativeLayout>
