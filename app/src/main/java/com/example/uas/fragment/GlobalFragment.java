@@ -12,13 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.uas.R;
-import com.example.uas.adapter.ContinentAdapter;
 import com.example.uas.adapter.GlobalAdapter;
 import com.example.uas.databinding.FragmentGlobalBinding;
-import com.example.uas.databinding.FragmentHomeBinding;
 import com.example.uas.retrofitAPI.ApiEndpoint;
 import com.example.uas.retrofitAPI.ApiService;
-import com.example.uas.retrofitAPI.ContinentsResult;
 import com.example.uas.retrofitAPI.CountriesResult;
 
 import java.util.ArrayList;

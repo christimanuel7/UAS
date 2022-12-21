@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class CountriesResult {
 
-    @SerializedName("countryInfo")
-    private CountriesFlag countriesFlag;
-
     @SerializedName("country")
     String country;
+
+    @SerializedName("countryInfo")
+    private CountriesFlag countriesFlag;
 
     @SerializedName("cases")
     int cases;
