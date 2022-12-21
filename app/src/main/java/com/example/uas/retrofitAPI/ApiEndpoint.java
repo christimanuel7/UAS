@@ -7,11 +7,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiEndpoint {
-    @GET("v3/covid-19/continents")
+    @GET("/v3/covid-19/continents")
     Call<ArrayList<ContinentsResult>> getDataContinents(@Query("yesterday") String yesterday, @Query("twoDaysAgo")
             String twoDaysAgo, @Query("sort") String sort, @Query("allowNull") String allowNull);
 
-    @GET("v3/covid-19/countries")
+    @GET("/v3/covid-19/countries")
     Call<ArrayList<CountriesResult>> getDataCountries(@Query("yesterday") String yesterday, @Query("twoDaysAgo")
             String twoDaysAgo, @Query("sort") String sort, @Query("allowNull") String allowNull);
 }

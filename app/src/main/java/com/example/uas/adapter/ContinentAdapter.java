@@ -17,7 +17,6 @@ import com.example.uas.retrofitAPI.ContinentsResult;
 import java.util.ArrayList;
 
 public class ContinentAdapter extends RecyclerView.Adapter<ContinentAdapter.ViewHolder> {
-
     private final ArrayList<ContinentsResult> continentsResults;
     private final Context context;
 
@@ -25,7 +24,6 @@ public class ContinentAdapter extends RecyclerView.Adapter<ContinentAdapter.View
         this.continentsResults = continentsResults;
         this.context = context;
     }
-
 
     @NonNull
     @Override
@@ -44,33 +42,22 @@ public class ContinentAdapter extends RecyclerView.Adapter<ContinentAdapter.View
         return continentsResults.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView txtContinent,txtCases,txtDeath,txtRecovered;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView txtContinent, txtCases, txtDeath, txtRecovered;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtContinent=itemView.findViewById(R.id.datContinent);
-            txtCases=itemView.findViewById(R.id.datCases);
-            txtDeath=itemView.findViewById(R.id.datDeath);
-            txtRecovered=itemView.findViewById(R.id.datRecovered);
+            txtContinent = itemView.findViewById(R.id.datContinent);
+            txtCases = itemView.findViewById(R.id.datCases);
+            txtDeath = itemView.findViewById(R.id.datDeath);
+            txtRecovered = itemView.findViewById(R.id.datRecovered);
         }
 
-        void bindItem(ContinentsResult continent, Context context){
-            setHtmlText(txtContinent, continent.getContinent());
-            setHtmlText(txtCases, String.valueOf(continent.getCases()));
-            setHtmlText(txtDeath, String.valueOf(continent.getDeaths()));
-            setHtmlText(txtRecovered, String.valueOf(continent.getRecovered()));
-
-//            itemView.setOnClickListener(v -> {
-//                Intent continentDetail = new Intent(context, ContinentDetailActivity.class);
-//                continentDetail.putExtra("tipe", "continent");
-//                continentDetail.putExtra("continent_name", continent.getContinent());
-//                context.startActivity(continentDetail);
-//            });
+        void bindItem(ContinentsResult continent, Context context) {
+            txtContinent.setText(continent.getContinent());
+            txtCases.setText(String.valueOf(continent.getCases()));
+            txtDeath.setText(String.valueOf(continent.getDeaths()));
+            txtRecovered.setText(String.valueOf(continent.getRecovered()));
         }
-    }
-
-    private void setHtmlText(TextView tv, String textValue){
-        tv.setText(HtmlCompat.fromHtml("<b>" + textValue + "</b>", HtmlCompat.FROM_HTML_MODE_LEGACY));
     }
 }

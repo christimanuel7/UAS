@@ -3,12 +3,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.GlobalFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/flag"
+            android:text="Flag Countries"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/datCountries"
+            android:text="datCountries"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/datCases"
+            android:text="datCase"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/datDeath"
+            android:text="datDeath"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/datRecovered"
+            android:text="datRecovered"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="8sp"/>
+    </TableRow>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_layout_global"/>
+
+    </TableLayout>
 
 </FrameLayout>

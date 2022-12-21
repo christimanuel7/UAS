@@ -13,7 +13,11 @@ import android.view.MenuItem;
 import com.example.uas.R;
 import com.example.uas.fragment.GlobalFragment;
 import com.example.uas.fragment.HomeFragment;
+import com.example.uas.retrofitAPI.ApiEndpoint;
+import com.example.uas.retrofitAPI.ApiService;
 import com.google.android.material.navigation.NavigationView;
+
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
@@ -29,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Retrofit retrofit = ApiService.getClient();
+        ApiEndpoint apiEndpoint = retrofit.create(ApiEndpoint.class);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);

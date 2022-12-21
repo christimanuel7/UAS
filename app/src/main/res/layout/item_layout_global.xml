@@ -4,15 +4,20 @@
     android:layout_height="wrap_content">
 
     <TableRow>
+        <ImageView
+            android:id="@+id/flagCountries"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_weight="2"
+            />
         <TextView
-            android:id="@+id/datContinent"
-            android:text="datContinent"
+            android:id="@+id/datCountries"
+            android:text="datCountries"
             android:layout_weight="2"
             android:gravity="start"
             android:padding="5dp"
             android:textColor="#000"
             android:textSize="8sp"/>
-
         <TextView
             android:id="@+id/datCases"
             android:text="datCase"
@@ -21,7 +26,6 @@
             android:padding="5dp"
             android:textColor="#000"
             android:textSize="8sp"/>
-
         <TextView
             android:id="@+id/datDeath"
             android:text="datDeath"
@@ -30,7 +34,6 @@
             android:padding="5dp"
             android:textColor="#000"
             android:textSize="8sp"/>
-
         <TextView
             android:id="@+id/datRecovered"
             android:text="datRecovered"
