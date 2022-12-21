@@ -16,12 +16,15 @@ public class ContinentsResult {
     @SerializedName("recovered")
     int recovered;
 
+    @SerializedName("countries")
+    String [] countries;
 
-    public ContinentsResult(String continent, int cases, int deaths, int recovered) {
+    public ContinentsResult(String continent, int cases, int deaths, int recovered, String[] countries) {
         this.continent = continent;
         this.cases = cases;
         this.deaths = deaths;
         this.recovered = recovered;
+        this.countries = countries;
     }
 
     public String getContinent() {
@@ -56,4 +59,11 @@ public class ContinentsResult {
         this.recovered = recovered;
     }
 
+    public String[] getCountries() {
+        return countries;
+    }
+
+    public void setCountries(String[] countries) {
+        this.countries = countries;
+    }
 }

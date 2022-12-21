@@ -12,6 +12,7 @@ import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.uas.R;
+import com.example.uas.activity.ContinentDetailActivity;
 import com.example.uas.retrofitAPI.ContinentsResult;
 
 import java.util.ArrayList;
@@ -58,6 +59,13 @@ public class ContinentAdapter extends RecyclerView.Adapter<ContinentAdapter.View
             txtCases.setText(String.valueOf(continent.getCases()));
             txtDeath.setText(String.valueOf(continent.getDeaths()));
             txtRecovered.setText(String.valueOf(continent.getRecovered()));
+
+            itemView.setOnClickListener(v -> {
+                Intent continentDetail = new Intent(context, ContinentDetailActivity.class);
+                continentDetail.putExtra("tipe", "continent");
+                continentDetail.putExtra("continent_name", continent.getContinent());
+                context.startActivity(continentDetail);
+            });
         }
     }
 }
