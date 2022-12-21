@@ -1,13 +1,13 @@
 package com.example.uas.retrofitAPI;
 
 public class CountriesResponse {
-    private CountriesResult[] continent;
+    private CountriesResult[] countries;
 
-    public CountriesResult[] getContinent() {
-        return continent;
+    public CountriesResult[] getCountries() {
+        return countries;
     }
 
-    public void setContinent(CountriesResult[] continent) {
-        this.continent = continent;
+    public void setCountries(CountriesResult[] countries) {
+        this.countries = countries;
     }
 }

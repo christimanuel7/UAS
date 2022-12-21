@@ -1,6 +1,7 @@
 package com.example.uas.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.uas.R;
 import com.example.uas.retrofitAPI.ContinentsResult;
 import com.example.uas.retrofitAPI.CountriesResult;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -35,9 +37,13 @@ public class GlobalAdapter extends RecyclerView.Adapter<GlobalAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull GlobalAdapter.ViewHolder holder, int position) {
-        Glide.with(context)
-                        .load(countriesResults.get(position).getFlag())
-                                .into(holder.imgFlag);
+
+        Uri flagUrl = Uri.parse(countriesResults.get(position).getCountriesFlag().getFlagsURL());
+        Picasso.get().load(flagUrl).into(holder.imgFlag);
+
+//        Glide.with(context)
+//                .load(countriesResults.get(position).getCountriesFlag().getFlagsURL())
+//                .into(holder.imgFlag);
         holder.txtCountries.setText(countriesResults.get(position).getCountry());
         holder.txtCases.setText(String.valueOf(countriesResults.get(position).getCases()));
         holder.txtDeath.setText(String.valueOf(countriesResults.get(position).getDeaths()));

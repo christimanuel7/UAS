@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class CountriesResult {
 
-    @SerializedName("flag")
-    private String flag;
+    @SerializedName("countryInfo")
+    private CountriesFlag countriesFlag;
 
     @SerializedName("country")
     String country;
@@ -19,20 +19,20 @@ public class CountriesResult {
     @SerializedName("recovered")
     int recovered;
 
-    public CountriesResult(String flag, String country, int cases, int deaths, int recovered) {
-        this.flag=flag;
+    public CountriesResult(CountriesFlag countriesFlag, String country, int cases, int deaths, int recovered) {
+        this.countriesFlag = countriesFlag;
         this.country = country;
         this.cases = cases;
         this.deaths = deaths;
         this.recovered = recovered;
     }
 
-    public String getFlag() {
-        return flag;
+    public CountriesFlag getCountriesFlag() {
+        return countriesFlag;
     }
 
-    public void setFlag(String flag) {
-        this.flag = flag;
+    public void setCountriesFlag(CountriesFlag countriesFlag) {
+        this.countriesFlag = countriesFlag;
     }
 
     public String getCountry() {
