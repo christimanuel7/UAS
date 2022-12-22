@@ -5,7 +5,7 @@
 
         <item android:id="@+id/menu_menu"
             android:icon="@drawable/ic_baseline_home_24"
-            android:title="MENU"/>
+            android:title="HOME"/>
 
     </group>
 
@@ -13,7 +13,7 @@
     <group android:checkableBehavior="single">
 
         <item android:id="@+id/menu_global"
-            android:icon="@drawable/ic_baseline_brightness_low_24"
+            android:icon="@drawable/ic_baseline_flag_24"
             android:title="GLOBAL"/>
 
 
