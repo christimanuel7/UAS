@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             app:logo="@drawable/toolbarlogo"
             app:title="WORLD COVID TRACKER"
+            android:theme="@style/AppTheme"
             android:background="@color/bgSplash"
             app:titleTextColor="@color/white"
             app:contentInsetStartWithNavigation="0dp"
