@@ -11,5 +11,5 @@
     <color name="warning">#FF902A</color>
     <color name="alert">#FF5555</color>
     <color name="success">#007F0C</color>
-    <color name="bgblacktransparent">#00000080</color>
+    <color name="bgSplash60">#3D567260</color>
 </resources>
