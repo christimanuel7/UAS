@@ -7,49 +7,73 @@
     tools:context=".fragment.HomeFragment"
     android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtCari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SEARCHINGSEARCHINGSEARCHING"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_alignParentEnd="true"
+                android:textAlignment="textEnd"
+                android:id="@+id/txtSort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sort"
+                android:layout_toEndOf="@id/txtCari"
+                android:textSize="16sp"/>
+
+        </RelativeLayout>
+
         <TextView
+            android:layout_marginTop="16dp"
             android:id="@+id/txtContinents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CONTINENTS" />
 
-       <TableLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
+<!--       <TableLayout-->
+<!--           android:layout_width="match_parent"-->
+<!--           android:layout_height="match_parent">-->
 
-           <TableRow>
-                   <TextView
-                       android:id="@+id/txtContinent"
-                       android:layout_weight="2"
-                       android:gravity="center"
-                       android:padding="5dp"
-                       android:text="Continent"
-                       android:textColor="#000" />
+<!--           <TableRow>-->
+<!--                   <TextView-->
+<!--                       android:id="@+id/txtContinent"-->
+<!--                       android:layout_weight="2"-->
+<!--                       android:gravity="center"-->
+<!--                       android:padding="5dp"-->
+<!--                       android:text="Continent"-->
+<!--                       android:textColor="#000" />-->
 
-                   <TextView
-                       android:id="@+id/txtCases"
-                       android:layout_weight="2"
-                       android:gravity="center"
-                       android:padding="5dp"
-                       android:text="Cases"
-                       android:textColor="#000" />
+<!--                   <TextView-->
+<!--                       android:id="@+id/txtCases"-->
+<!--                       android:layout_weight="2"-->
+<!--                       android:gravity="center"-->
+<!--                       android:padding="5dp"-->
+<!--                       android:text="Cases"-->
+<!--                       android:textColor="#000" />-->
 
-                   <TextView
-                       android:id="@+id/txtDeath"
-                       android:layout_weight="2"
-                       android:gravity="center"
-                       android:padding="5dp"
-                       android:text="Death"
-                       android:textColor="#000" />
+<!--                   <TextView-->
+<!--                       android:id="@+id/txtDeath"-->
+<!--                       android:layout_weight="2"-->
+<!--                       android:gravity="center"-->
+<!--                       android:padding="5dp"-->
+<!--                       android:text="Death"-->
+<!--                       android:textColor="#000" />-->
 
-                   <TextView
-                       android:id="@+id/txtRecovered"
-                       android:layout_weight="2"
-                       android:gravity="center"
-                       android:padding="5dp"
-                       android:text="Recovered"
-                       android:textColor="#000" />
-           </TableRow>
+<!--                   <TextView-->
+<!--                       android:id="@+id/txtRecovered"-->
+<!--                       android:layout_weight="2"-->
+<!--                       android:gravity="center"-->
+<!--                       android:padding="5dp"-->
+<!--                       android:text="Recovered"-->
+<!--                       android:textColor="#000" />-->
+<!--           </TableRow>-->
 
            <androidx.recyclerview.widget.RecyclerView
                android:id="@+id/recyclerView"
@@ -58,7 +82,5 @@
                android:orientation="vertical"
                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                tools:listitem="@layout/item_layout"/>
-
-       </TableLayout>
 
 </LinearLayout>

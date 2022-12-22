@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navView);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+        toolbar.setTitle("CONTINENT");
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
@@ -59,10 +60,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.menu_menu:
                 navigationView.setCheckedItem(R.id.menu_menu);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+                toolbar.setTitle("CONTINENT");
                 break;
             case R.id.menu_global:
                 navigationView.setCheckedItem(R.id.menu_global);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new GlobalFragment()).commit();
+                toolbar.setTitle("GLOBAL COUNTRY");
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
